@@ -1,0 +1,81 @@
+﻿@page
+@model BestShop.Pages.ContactForm.ContactFormModel
+@{
+    ViewData["Title"] = "Contact Form";
+}
+
+<div class="row">
+    <div class="col-lg-6 mx-auto border rounded p-3">
+        <h3 class="mb-3 font-weight-normal text-center pb-4">Contact Form</h3>
+        <div asp-asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <form class="form-gr" method="post">
+            <div class="row mb-3">
+                <label class="col-sm-4 col-form-label" asp-for="Message.FirstName">First Name</label>
+                <div class="col-sm-8">
+                    <input class="form-control" type="text" asp-for="Message.FirstName" />
+                    <span asp-validation-for="Message.FirstName" class="text-danger"></span>
+                </div>
+            </div>
+
+            <div class="row mb-3">
+                <label class="col-sm-4 col-form-label" asp-for="Message.LastName">Lat Name</label>
+                <div class="col-sm-8">
+                    <input class="form-control" type="text" asp-for="Message.LastName" />
+                    <span asp-validation-for="Message.LastName" class="text-danger"></span>
+                </div>
+            </div>
+
+            <div class="row mb-3">
+                <label class="col-sm-4 col-form-label" asp-for="Message.Email">Email</label>
+                <div class="col-sm-8">
+                    <input class="form-control" type="email" asp-for="Message.Email" />
+                    <span asp-validation-for="Message.Email" class="text-danger"></span>
+                </div>
+            </div>
+
+            <div class="row mb-3">
+                <label class="col-sm-4 col-form-label" asp-for="Message.Phone">Phone</label>
+                <div class="col-sm-8">
+                    <input class="form-control" type="tel" asp-for="Message.Phone"/>
+                    <span asp-validation-for="Message.Phone" class="text-danger"></span>
+                </div>
+            </div>
+
+            <div class="row mb-3">
+                <label class="col-sm-4 col-form-label" asp-for="Message.Subject">Subject</label>
+                <div class="col-sm-8">
+                    <select class="form-select" asp-for="Message.Subject">
+                        <option value="-1" selected>Select subject</option>
+                        <option value="Order Status">Order Status</option>
+                        <option value="Refund Request">Refund Request</option>
+                        <option value="Job Application">Job Application</option>
+                        <option value="Other">Other</option>
+                    </select>
+                    <span asp-validation-for="Message.Subject" class="text-danger"></span>
+                </div>
+            </div>
+
+            <div class="row mb-3">
+                <label class="col-sm-4 col-form-label" asp-for="Message.Body">Message</label>
+                <div class="col-sm-8">
+                    <textarea class="form-control" asp-for="Message.Body"></textarea>
+                    <span asp-validation-for="Message.Body" class="text-danger"></span>
+                </div>
+            </div>
+
+            <div class="row mb-3 float-end">
+                <div class="offset-sm-4 col-sm-4">
+                    <button type="submit" class="btn btn-lg btn-primary">Submit</button>
+                </div>
+                @* <div class="col-sm-4 m-1">
+                    <button type="button" class="btn btn-lg btn-secondary">Cancel</button>
+                </div> *@
+             </div>
+
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
