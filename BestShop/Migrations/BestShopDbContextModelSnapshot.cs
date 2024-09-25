@@ -60,7 +60,7 @@ namespace BestShop.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Messages");
+                    b.ToTable("Messages", (string)null);
                 });
 #pragma warning restore 612, 618
         }
