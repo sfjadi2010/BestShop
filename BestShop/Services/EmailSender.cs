@@ -7,7 +7,7 @@ public class EmailSender
 {
     public async static Task SendEmail(string email, string username, string subject, string message)
     {
-        var apiKey = "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";
+        var apiKey = "";
 
         var client = new SendGridClient(apiKey);
 
