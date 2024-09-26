@@ -1,0 +1,40 @@
+﻿@page
+@model BestShop.Pages.Admin.Messages.IndexModel
+@{
+    ViewData["Title"] = "Messages";
+}
+
+<div class="row">
+    <div class="col-lg-12 mx-auto border rounded p-3">
+        <h3 class="mb-3 font-weight-normal text-center pb-4">Received Messages</h3>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>Email</th>
+                    <th>Phone</th>
+                    <th>Subject</th>
+                    <th>Message</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var message in Model.Messages)
+                {
+                    <tr>
+                        <td>@message.FirstName</td>
+                        <td>@message.LastName</td>
+                        <td>@message.Email</td>
+                        <td>@message.Phone</td>
+                        <td>@message.Subject</td>
+                        <td>@message.Body</td>
+                        <td>
+                            <a class="btn btn-primary btn-sm">Details</a>
+                            <a class="btn btn-danger btn-sm">Delete</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>

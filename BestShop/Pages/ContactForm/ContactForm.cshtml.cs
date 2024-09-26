@@ -1,5 +1,6 @@
 using BestShop.Data;
 using BestShop.Models;
+using BestShop.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
@@ -44,6 +45,13 @@ public class ContactFormModel : PageModel
         Message.ModifiedAt = DateTime.Now;
         _context.Messages.Add(Message);
         await _context.SaveChangesAsync();
+
+        // Send confirmation email
+        var username = $"{Message.FirstName} {Message.LastName}";
+        var subject = "Thank you for contacting us!";
+        var message = $"Dear {username}, We have received your message and will get back to you as soon as possible.";
+
+        await EmailSender.SendEmail(Message.Email, username, subject, message);
 
         return RedirectToPage("/Index");
     }
